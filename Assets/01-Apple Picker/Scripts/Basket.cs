@@ -13,6 +13,11 @@ public class Basket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 mousePos2D = Input.mousePosition; //a
         
+        Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D); //c
+        Vector3 pos = this.transform.position;
+        pos.x = mousePos3D.x;
+        this.transform.position = pos;
     }
 }

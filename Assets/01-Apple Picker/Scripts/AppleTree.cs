@@ -21,31 +21,38 @@ public class AppleTree : MonoBehaviour
 
     void DropApple()
     {
-       
+        GameObject apple = Instantiate<GameObject>(applePrefab);
+        apple.transform.position = transform.position;
+        Invoke("DropApple", secondsBetweenAppleDrops);
+
     }
     // Update is called once per frame
     void Update()
     {
-    //Basic Movement
-    Vector3 pos = transform.position;
+        //Basic Movement
+        Vector3 pos = transform.position;
         pos.x += speed * Time.deltaTime;
         transform.position = pos;
-    //Changing Directions
-    if (pos.x < -leftAndRightEdge) {
-            speed = Mathf.Abs(speed); 
-        } else if (pos.x > leftAndRightEdge) {
-            speed = -Mathf.Abs(speed);
-        } else if ( Random.value < chanceToChangeDirections )
+        //Changing Directions
+        if (pos.x < -leftAndRightEdge)
         {
-            speed *= -1; //change direction
+            speed = Mathf.Abs(speed);
+        }
+        else if (pos.x > leftAndRightEdge)
+        {
+            speed = -Mathf.Abs(speed);
         }
     }
 
     void FixedUpdate()
     {
-    if ( Random.value <  chanceToChangeDirections )
+       if (Random.value < chanceToChangeDirections)
         {
             speed *= -1;
-        }
+        } 
     }
+
+
 }
+
+
