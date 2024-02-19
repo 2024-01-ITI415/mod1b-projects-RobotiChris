@@ -7,6 +7,7 @@ TagManager:
   - Apple
   - Projectile
   - Walls
+  - player
   layers:
   - Default
   - TransparentFX
