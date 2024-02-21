@@ -8,6 +8,8 @@ TagManager:
   - Projectile
   - Walls
   - player
+  - Bullet
+  - Coins
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - AppleTree
   - Apple
   - Basket
-  - 
-  - 
+  - Coins
+  - Bullet
   - 
   - 
   - 

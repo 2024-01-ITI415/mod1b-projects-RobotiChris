@@ -17,18 +17,31 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
-    // Start is called before the first frame update
-    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-    private void FixedUpdate()
+    void Update()
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         rb.AddForce(movement);
         rb.AddForce(movement * speed);
-    }
-    // Update is called once per frame
+        if (Mathf.Abs(movementX) < 0.01f && Mathf.Abs(movementY) < 0.01f)
+        {
+            rb.velocity = Vector3.zero;
+        } 
+     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coins"))
+        {
+            if (other.gameObject.CompareTag("Coins"))
+            {
+                other.gameObject.SetActive(false);
+            }
+        }
+        other.gameObject.SetActive(false);
+
+    }
 }
